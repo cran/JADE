@@ -1,0 +1,4 @@
+import(stats)
+
+export(JADE, rjd, SIR, ComonGAP, amari.error)
+
