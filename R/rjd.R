@@ -83,13 +83,12 @@ function(X, eps = 1e-06, maxiter = 100, na.action = na.fail)
     
         recomp<-function(X,V)
         {as.data.frame(V %*% as.matrix(X) %*% t(V))}
-        Z<-split(as.data.frame(X.data),rep(1:p,each=p))
+        Z<-split(as.data.frame(X.data),rep(1:k,each=p))
         Z2<-sapply(Z,recomp,V=as.matrix(V),simplify=F)
         Z3<-matrix(unlist(lapply(Z2, t)), ncol=p, byrow=TRUE) 
         if (type== "Array")
             {
-            Z4<-array(Z3,dim=c(p,p,k))
-            D<-aperm(Z4,c(1,3,2))
+            D<-aperm(array(t(Z3), dim = c(p,p,k)), c(2,1,3), resize = FALSE)
             }
         else
             {
@@ -97,4 +96,3 @@ function(X, eps = 1e-06, maxiter = 100, na.action = na.fail)
             }
         return(list(V=t(V),D=D))
     }
-

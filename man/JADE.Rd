@@ -56,7 +56,7 @@ res<-JADE(X,3)
 res$A
 res$W
 res$S[1:10,]
-(sweep(X,1,res$Xmu) \%*\% t(res$W))[1:10,]
-
+(sweep(X,2,res$Xmu) \%*\% t(res$W))[1:10,]
+round(res$W \%*\% A,4) 
 }
 \keyword{ multivariate }

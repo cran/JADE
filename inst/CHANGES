@@ -1,0 +1,11 @@
+LOG of the CHANGES in the package JADE
+
+
+Version 1.0-1:
+
+* Bug fixed in function rjd (reported by Kate Cowles)
+* Bug fixed in the example of JADE (reported by Cédric Gouy-Pailler)
+
+Version 1.0-0:
+
+First version released on CRAN

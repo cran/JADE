@@ -12,8 +12,8 @@ several criteria to evaluate ICA algorithms in simulation studies.
 \tabular{ll}{
 Package: \tab JADE\cr
 Type: \tab Package\cr
-Version: \tab 1.0-0\cr
-Date: \tab 2007-10-31\cr
+Version: \tab 1.0-1\cr
+Date: \tab 2008-03-29\cr
 License: \tab GPL (>= 2)\cr
 }
 
