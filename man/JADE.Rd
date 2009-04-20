@@ -23,12 +23,13 @@ JADE(X, n.comp = NULL, eps = 1e-06, maxiter = 100, na.action = na.fail)
 
 \details{
   Some minor modifications were done when porting the function to \pkg{R}, and they are:
+  \describe{
   \item{1}{the model assumed here is \eqn{X=S A' +\mu}{X = S A' + Xmu}. Therefore \eqn{S} and \eqn{X} have one row per observation. Note that this still differs from 
   the model definition in \pkg{R} of \code{FastICA} and \code{PearsonICA} but agrees with \code{ics}.}
   \item{2}{The whitening covariance matrix is divided by n-1 and not n (n = number of observations).}
   \item{3}{The initial value for the joint diagonalisation is always I.}
   \item{4}{The original eps would be \eqn{\frac{1}{100\sqrt{n}}}{1/(100*sqrt(n))}.}
-  
+  }
   Worth mentioning is also that the estimated independent components \eqn{S} are scaled to unit variance and are ordered in such a way, that the most energetic component comes first.
   The signs of the unmixing matrix \eqn{W} are fixed such, that the first column of \eqn{W} has positive elements.
   
