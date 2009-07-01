@@ -3,7 +3,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Comon's Gap}
 \description{
-  ~~ Comon's GAP criterion to evaluate the performance of an ICA algorithm. ~~
+  Comon's GAP criterion to evaluate the performance of an ICA algorithm.
 }
 \usage{
 ComonGAP(A, A.hat)

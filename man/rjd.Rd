@@ -51,7 +51,8 @@ X.matrix <- rbind(t(U) \%*\% D1 \%*\% U, t(U) \%*\% D2 \%*\% U,
                   t(U) \%*\% D3 \%*\% U, t(U) \%*\% D4 \%*\% U)
 res.matrix <- rjd(X.matrix)
 res.matrix$V
-round(U \%*\% res.matrix$V, 4) # should be a signed permutation matrix if V is correct.
+round(U \%*\% res.matrix$V, 4) # should be a signed permutation 
+                             # matrix if V is correct.
 
 round(res.matrix$D, 4)
 

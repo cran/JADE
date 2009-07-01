@@ -131,7 +131,13 @@ function(X,n.comp=NULL, eps = 1e-06, maxiter = 100, na.action = na.fail)
     {
     B<-sign(B[1])*B
     }  
-  res<-list(A=solve(B),W=B,S=data.X %*% t(B),Xmu=Col.center)
+    
+  if(n.comp == X.cols) A <- solve(B) else A <- t(B) %*% solve(B %*% t(B))
+  
+  res<-list(A=A,W=B,S=data.X %*% t(B),Xmu=Col.center)
   return(res)
   }
-
+  
+  
+  
+  
