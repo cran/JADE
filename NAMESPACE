@@ -1,4 +1,4 @@
 import(stats)
 
-export(JADE, rjd, SIR, ComonGAP, amari.error)
+export(JADE, rjd, SIR, ComonGAP, amari.error, MD)
 
