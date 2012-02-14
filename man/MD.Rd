@@ -18,7 +18,7 @@ MD(W.hat, A)
  where \eqn{P}{P} is a permutation matrix and \eqn{D}{D} a diagonal matrix with nonzero diagonal entries.
  
  The step that minimizes the index of the set over all permutation matrix can be expressed as a linear sum assignment problem (LSAP)
- for which we use as solver the Hungarian method implemented as \code{solve_LASP} in the \pkg{coin} package.
+ for which we use as solver the Hungarian method implemented as \code{solve_LASP} in the \pkg{clue} package.
  
  Note that this function assumes the ICA model is \eqn{X = S A'}, as is assumed by \code{\link{JADE}} and \code{ics}. However \code{fastICA} and 
  \code{PearsonICA} assume \eqn{X = S A}. Therefore matrices from those functions have to be transposed first.

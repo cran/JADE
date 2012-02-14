@@ -133,8 +133,10 @@ function(X,n.comp=NULL, eps = 1e-06, maxiter = 100, na.action = na.fail)
     }  
     
   if(n.comp == X.cols) A <- solve(B) else A <- t(B) %*% solve(B %*% t(B))
-  
-  res<-list(A=A,W=B,S=data.X %*% t(B),Xmu=Col.center)
+  S <- data.X %*% t(B)
+  colnames(S) <- paste("IC.", 1:n.comp, sep="")
+  res<-list(A=A, W=B, S=S, Xmu=Col.center)
+  class(res) <- "bss"
   return(res)
   }
   

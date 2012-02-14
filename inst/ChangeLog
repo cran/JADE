@@ -1,6 +1,14 @@
 LOG of the CHANGES in the package JADE
 
-Version 1.0-4
+Version 1.1-0:
+
+* Sara Taskinen and Jari Miettinen joined the team
+* New title and description of the package
+* New functions AMUSE, SOBI, multscatter, djd, bss.components
+* New class bss with coressponding methods print, coef and plot
+* JADE results are also of class bss
+
+Version 1.0-4:
 
 * added function MD
 

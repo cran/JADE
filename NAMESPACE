@@ -1,4 +1,10 @@
 import(stats)
 
-export(JADE, rjd, SIR, ComonGAP, amari.error, MD)
-
+export(JADE, rjd, SIR, ComonGAP, amari.error, MD, AMUSE, bss.components, djd, multscatter, SOBI)
+S3method(print,bss)
+S3method(coef,bss)
+S3method(plot,bss)
+S3method(AMUSE,default)
+S3method(AMUSE,ts)
+S3method(SOBI,default)
+S3method(SOBI,ts)

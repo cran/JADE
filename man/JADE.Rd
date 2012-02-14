@@ -36,7 +36,7 @@ JADE(X, n.comp = NULL, eps = 1e-06, maxiter = 100, na.action = na.fail)
   For further details see also the documention of the original matlab code ("MatlabjadeR.m") on the ICA central homepage (\url{http://www.tsi.enst.fr/icacentral/}). 
 }
 \value{
-  A list with the components
+  A list with class 'bss' containing the following components:
   \item{A}{The estimated mixing matrix.}
   \item{W }{The estimated unmixing matrix.}
   \item{S }{Dataframe with the estimated independent components.}
