@@ -30,7 +30,7 @@ to write wrappers for some of the functions. See examples.
 An array of dimension c(p,p,k) where k is the number of scatter matrices.
 }
 
-\author{Klaus Nordhausen, \email{klaus.nordhausen@uta.fi}}
+\author{Klaus Nordhausen}
 
 \examples{
 # example requires the packages ICS and ICSNP

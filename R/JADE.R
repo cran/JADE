@@ -10,7 +10,7 @@ function(X,n.comp=NULL, eps = 1e-06, maxiter = 100, na.action = na.fail)
     X.cols <- dim(X)[2]
     
     if (is.null(n.comp)) n.comp <- X.cols
-    if (n.comp > X.cols) stop("'n.comp' must be smaller than number of colums of X")
+    if (n.comp > X.cols) stop("'n.comp' must be smaller than number of columns of X")
     
     X<-scale(X,scale=F)
     Col.center <- attr(X,"scaled:center")
@@ -68,55 +68,8 @@ function(X,n.comp=NULL, eps = 1e-06, maxiter = 100, na.action = na.fail)
        }
     }
     
-    V<-diag(1,n.comp)
-    encore<-1
-    sweep<-0
-    updates<-0
-    g<-matrix(0,ncol=2,nrow=nbcm)
-    gg<-matrix(0,ncol=2,nrow=2)
-    G<-matrix(0,ncol=2,nrow=2)
-    ton<-0
-    toff<-0
-    theta<-0
-
-    if (n.comp>1)
-    {
-    while (encore==1)
-        {
-        encore<-0
-        for (p in 1:(n.comp-1))
-            {
-            for (q in (p+1):n.comp)
-                {
-        
-                Ip<-seq(p,n.comp*nbcm,n.comp)
-                Iq<-seq(q,n.comp*nbcm,n.comp)
-        
-                g[,1]<-CM[Ip,p]-CM[Iq,q]
-                g[,2]<-CM[Iq,p]+CM[Ip,q]
-            
-                gg<-t(g)%*%g
-                ton<-gg[1,1]-gg[2,2]
-                toff<-gg[1,2]+gg[2,1]
-                theta<-0.5*atan2(toff, ton+sqrt(ton*ton+toff*toff))
-        
-                if (abs(theta)>eps)
-                    {
-                    encore<-1
-                    updates<-updates+1
-                    cos.theta<-cos(theta)
-                    sin.theta<-sin(theta)
-                    G<-rbind(c(cos.theta,-sin.theta),c(sin.theta,cos.theta))
-                    pair<-c(p,q)
-                    V[,pair]<-V[,pair] %*% G
-                    CM[,pair]<-CM[,pair] %*% G
-                    CM[c(Ip,Iq),]<-rbind(cos.theta*CM[Ip,]+sin.theta*CM[Iq,], -sin.theta*CM[Ip,]+cos.theta*CM[Iq,])
-                    }
-                }
-            }
-        if (updates >= maxiter) stop("maxiter reached without convergence")   
-        }
-    }
+    V<-rjd.fortran(CM)$V 
+     
     B1<-t(V)%*%W
     A<-iW%*%V
     

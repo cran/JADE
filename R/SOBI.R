@@ -19,11 +19,11 @@ SOBI <- function(X,...) UseMethod("SOBI")
 #   k = lag used
 #   S = sources as a time series object
 
-SOBI.default <- function(X, k=12, method="rjd", eps = 1e-06, maxiter = 100, ...)
+SOBI.default <- function(X, k=12, method="rjd.fortran", eps = 1e-06, maxiter = 100, ...)
     {
     if (length(k)==1) k <- 1:k 
     nk <- length(k)
-    method <- match.arg(method, c("rjd", "djd"))
+    method <- match.arg(method, c("rjd.fortran","rjd", "djd"))
     
     MEAN <- colMeans(X)
     COV <- cov(X)
@@ -44,6 +44,10 @@ SOBI.default <- function(X, k=12, method="rjd", eps = 1e-06, maxiter = 100, ...)
     
     
     JD <- switch(method,
+        "rjd.fortran"={
+               rjd.fortran(R, eps=eps, maxiter=maxiter)$V
+               }
+        ,
         "rjd"={
                rjd(R, eps=eps, maxiter=maxiter)$V
                }

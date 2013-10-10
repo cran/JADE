@@ -14,5 +14,5 @@ which is the source matrix.
   \item{x}{object of class bss.}
   \item{\dots}{further arguments to be passed to or from methods.}
 }
-\author{Klaus Nordhausen, \email{klaus.nordhausen@uta.fi}}
+\author{Klaus Nordhausen}
 \keyword{methods}

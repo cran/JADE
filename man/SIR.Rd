@@ -25,7 +25,7 @@ SIR(S, S.hat)
    the second international workshop on independent component analysis and blind source separation (ICA 2000)},  227--232. }  
 }
 
-\author{Klaus Nordhausen, \email{klaus.nordhausen@uta.fi}}
+\author{Klaus Nordhausen}
 
 \seealso{\code{\link{amari.error}}, \code{\link{ComonGAP}}}
 \examples{

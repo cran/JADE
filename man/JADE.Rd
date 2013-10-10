@@ -1,11 +1,11 @@
 \name{JADE}
 \alias{JADE}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{ JADE algorithm for ICA }
+\title{ JADE Algorithm for ICA }
 \description{
-  This is an \pkg{R} version of Cardoso's JADE ICA algorithm for real data ported from matlab. The ported version is 1.5, some minor
-  changes compared to the matlab function are explained in the details section. The matlab code can be found for example on the 
-  ICA central homepage.
+  This is an \pkg{R} version of Cardoso's JADE ICA algorithm (for real data) ported from matlab. The ported version is 1.5. Some minor changes compared to the matlab function are explained in the details section. The matlab code can be found for example on the ICA central homepage.
+
+The function uses \code{\link{rjd.fortran}} for the joint diagonalization.
 }
 \usage{
 JADE(X, n.comp = NULL, eps = 1e-06, maxiter = 100, na.action = na.fail)
@@ -30,8 +30,8 @@ JADE(X, n.comp = NULL, eps = 1e-06, maxiter = 100, na.action = na.fail)
   \item{3}{The initial value for the joint diagonalisation is always I.}
   \item{4}{The original eps would be \eqn{\frac{1}{100\sqrt{n}}}{1/(100*sqrt(n))}.}
   }
-  Worth mentioning is also that the estimated independent components \eqn{S} are scaled to unit variance and are ordered in such a way, that the most energetic component comes first.
-  The signs of the unmixing matrix \eqn{W} are fixed such, that the first column of \eqn{W} has positive elements.
+  It is also worth mentioning that the estimated independent components \eqn{S} are scaled to unit variance and are ordered in such a way, that the most energetic component comes first.
+  The signs of the unmixing matrix \eqn{W} are fixed so that the first column of \eqn{W} has positive elements.
   
   For further details see also the documention of the original matlab code ("MatlabjadeR.m") on the ICA central homepage (\url{http://www.tsi.enst.fr/icacentral/}). 
 }
@@ -46,7 +46,7 @@ JADE(X, n.comp = NULL, eps = 1e-06, maxiter = 100, na.action = na.fail)
    \cite{Cardoso, J.-F. and Souloumiac, A., (1993), Blind beamforming for non Gaussian signals, \emph{IEE Proceedings-F}, \bold{140},  362--370. 
    \url{ftp://sig.enst.fr/pub/jfc/Papers/iee.ps.gz}.}  
 }
-\author{Jean-Francois Cardoso. Ported to \pkg{R} by Klaus Nordhausen, \email{klaus.nordhausen@uta.fi}}
+\author{Jean-Francois Cardoso. Ported to \pkg{R} by Klaus Nordhausen}
 
 
 \examples{

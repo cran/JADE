@@ -33,7 +33,7 @@ amari.error(W.hat, A, standardize = F)
 \references{
    \cite{Amari, S., Cichocki, A. and Yang, H.H. (1996), A new learning algorithm for blind signal separation, \emph{Advances in Neural Information Processing Systems}, \bold{8},  757--763. }  
 }
-\author{Klaus Nordhausen, \email{klaus.nordhausen@uta.fi}}
+\author{Klaus Nordhausen}
 
 \seealso{\code{\link{ComonGAP}}, \code{\link{SIR}}}
 \examples{

@@ -28,7 +28,7 @@ ComonGAP(A, A.hat)
    \cite{Comon, P., (1994), Independent Component Analysis, A new concept?, \emph{Signal Processing}, \bold{36},  287--314. }  
 }
 
-\author{Klaus Nordhausen, \email{klaus.nordhausen@uta.fi}}
+\author{Klaus Nordhausen}
 
 \seealso{\code{\link{amari.error}}, \code{\link{SIR}}}
 \examples{

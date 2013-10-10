@@ -31,9 +31,9 @@ MD(W.hat, A)
 \cite{Ilmonen, P., Nordhausen, K., Oja, H. and Ollila, E. (2010): A New Performance Index for ICA: Properties, Computation and Asymptotic Analysis. 
 In Vigneron, V., Zarzoso, V., Moreau, E., Gribonval, R. and Vincent, E. (editors) \emph{Latent Variable Analysis and Signal Separation}, 229--236, Springer.}
 }
-\author{Klaus Nordhausen, \email{klaus.nordhausen@uta.fi}}
+\author{Klaus Nordhausen}
 
-\seealso{\code{\link{ComonGAP}}, \code{\link{SIR}}, \code{\link{amari.error}}, \code{solve_LASP}}
+\seealso{\code{\link{ComonGAP}}, \code{\link{SIR}}, \code{\link{amari.error}}, \code{\link[clue]{solve_LSAP}}}
 \examples{
 S <- cbind(rt(1000, 4), rnorm(1000), runif(1000))
 A <- matrix(rnorm(9), ncol = 3)

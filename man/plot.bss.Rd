@@ -15,7 +15,7 @@ using \code{plot.ts}, otherwise it will plot a scatter plot matrix using \code{p
   \item{\dots}{further arguments to be passed to or from methods.}
 }
 
-\author{Klaus Nordhausen, \email{klaus.nordhausen@uta.fi}}
+\author{Klaus Nordhausen}
 
 \seealso{
 \code{\link{plot.ts}}, \code{\link{pairs}}

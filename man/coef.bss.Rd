@@ -16,7 +16,7 @@ Extracts the estimated unmixing matrix from an object of class bss.
   \item{\dots}{further arguments to be passed to or from methods.}
 }
 
-\author{Klaus Nordhausen, \email{klaus.nordhausen@uta.fi}}
+\author{Klaus Nordhausen}
 
 \examples{
 A<- matrix(rnorm(9),3,3)

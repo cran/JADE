@@ -15,7 +15,7 @@ bss.components(object)
   \item{object}{object of class bss}
 }
 
-\author{Klaus Nordhausen, \email{klaus.nordhausen@uta.fi}}
+\author{Klaus Nordhausen}
 
 \examples{
 A<- matrix(rnorm(9),3,3)

@@ -25,8 +25,7 @@ AMUSE(x, ...)
   \item{\dots}{further arguments to be passed to or from methods.}
 }
 \details{
-The choosen lag \code{k} has a huge effect on the performance. It should be choosen such that the eigenvalues of autocovariance matrix are distinct.
-The function assumes always as many sources as there are time series.
+The lag \code{k} has a huge effect on the performance and it should be chosen so that the eigenvalues of autocovariance matrix are distinct. The function assumes always as many sources as there are time series.
 }
 \value{
  A list with class 'bss' containing the following components:
@@ -41,10 +40,9 @@ The function assumes always as many sources as there are time series.
             \emph{Circuits and Systems 1990}, 1784--1787.}
             
 \cite{Miettinen, J., Nordhausen, K., Oja, H. and Taskinen, S. (2012), Statistical properties of a blind source separation estimator for stationary time series, 
-            \emph{submitted}, ??--??.}
-
+            \emph{Statistics & Probability Letters}, 82, 1865--1873.}
 }
-\author{Klaus Nordhausen, \email{klaus.nordhausen@uta.fi}}
+\author{Klaus Nordhausen}
 
 \seealso{
 \code{\link{ts}}

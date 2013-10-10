@@ -14,14 +14,14 @@ the covariance matrix and several autocovariance matrices at different lags.
 \usage{
 SOBI(X, ...)
 
-\method{SOBI}{default}(X, k=12, method="rjd", eps = 1e-06, maxiter = 100, ...)
+\method{SOBI}{default}(X, k=12, method="rjd.fortran", eps = 1e-06, maxiter = 100, ...)
 \method{SOBI}{ts}(X, \dots)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{X}{a numeric matrix or a multivariate time series object of class \code{\link{ts}}. Missing values are not allowed.}
   \item{k}{if a single integer, then the lags 1:k are used, if an integer vector, then these are used as the lags.}
-  \item{method}{method to use for the joint diagonalization, options are \code{\link{djd}} and \code{\link{rjd}}.}
+  \item{method}{method to use for the joint diagonalization, options are \code{\link{djd}}, \code{\link{rjd}} and \code{\link{rjd.fortran}}}. 
   \item{eps}{maximum number of iterations.}
   \item{maxiter}{convergence tolerance.}
   \item{\dots}{further arguments to be passed to or from methods.}
@@ -36,9 +36,12 @@ SOBI(X, ...)
 \references{
 \cite{Belouchrani, A., Abed-Meriam, K., Cardoso, J.F. and Moulines, R. (1997), A blind source separation technique using second-order statistics, 
             \emph{IEEE Transactions on Signal Processing}, 434--444.}
+            
+\cite{Miettinen, J., Nordhausen, K., Oja, H. and Taskinen, S. (2013),  Deflation-based Separation of Uncorrelated Stationary Time Series, 
+            \emph{Journal of Multivariate Analysis}, ??, ???--???.}
 
 }
-\author{Klaus Nordhausen, \email{klaus.nordhausen@uta.fi}}
+\author{Klaus Nordhausen}
 
 \seealso{
 \code{\link{ts}}

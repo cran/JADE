@@ -1,5 +1,13 @@
 LOG of the CHANGES in the package JADE
 
+Version 1.9-9
+
+* Improving function djd
+* Making JADE faster
+* New functions NSS.SD, NSS.JD and NSS.TD.JD, FOBI, k_JADE, FG, rjd.fortran, cjd
+* changing the email of the maintainer
+* updating help files
+
 Version 1.1-0:
 
 * Sara Taskinen and Jari Miettinen joined the team
