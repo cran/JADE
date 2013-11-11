@@ -21,6 +21,7 @@ function(X, na.action = na.fail)
     
     EVD.COV4  <- eigen(COV4, symmetric=TRUE)
     W <- crossprod(EVD.COV4$vectors, COV.inv.sqrt)
+    W <- diag(sign(rowMeans(W)))%*%W
 
     S <- tcrossprod(X, W)
     colnames(S) <- paste("IC.", 1:p, sep="")
@@ -28,3 +29,5 @@ function(X, na.action = na.fail)
     class(res) <- "bss"
     return(res)
     }
+
+

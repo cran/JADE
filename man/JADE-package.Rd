@@ -11,8 +11,8 @@ The package ports JF Cardoso's JADE algorithm as well as his function for joint 
 \tabular{ll}{
 Package: \tab JADE\cr
 Type: \tab Package\cr
-Version: \tab 1.9-9\cr
-Date: \tab 2013-10-10\cr
+Version: \tab 1.9-91\cr
+Date: \tab 2013-11-11\cr
 License: \tab GPL (>= 2)\cr
 }
 

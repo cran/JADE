@@ -34,6 +34,8 @@ AMUSE.default <- function(x,k=1,...)
     EVD <- eigen(COViACOVk, symmetric=TRUE)
     
     W <- t(EVD$vectors) %*% COV.sqrt.i
+    W <- diag(sign(rowMeans(W)))%*%W
+
     EV <- EVD$values
     S <- tcrossprod(x,W)
     S <- ts(S, names=paste("Series",1:p))

@@ -23,14 +23,14 @@ SOBI.default <- function(X, k=12, method="rjd.fortran", eps = 1e-06, maxiter = 1
     {
     if (length(k)==1) k <- 1:k 
     nk <- length(k)
-    method <- match.arg(method, c("rjd.fortran","rjd", "djd"))
+    method <- match.arg(method, c("rjd", "djd", "rjd.fortran"))
     
     MEAN <- colMeans(X)
     COV <- cov(X)
     EVD <- eigen(COV, symmetric = TRUE)
     COV.sqrt.i <- EVD$vectors %*% (diag(EVD$values^(-0.5))) %*% t(EVD$vectors)
     X.C <- sweep(X,2,MEAN,"-")
-    Y <- X.C %*% COV.sqrt.i
+    Y <- tcrossprod(X.C,COV.sqrt.i)
     p <- ncol(X)
     R <- array(0, dim=c(p,p,nk))
     n <- nrow(X) 
@@ -44,9 +44,9 @@ SOBI.default <- function(X, k=12, method="rjd.fortran", eps = 1e-06, maxiter = 1
     
     
     JD <- switch(method,
-        "rjd.fortran"={
-               rjd.fortran(R, eps=eps, maxiter=maxiter)$V
-               }
+        rjd.fortran = {
+                      rjd.fortran(R, eps = eps, maxiter = maxiter)$V
+                      }
         ,
         "rjd"={
                rjd(R, eps=eps, maxiter=maxiter)$V
@@ -56,9 +56,24 @@ SOBI.default <- function(X, k=12, method="rjd.fortran", eps = 1e-06, maxiter = 1
                djd(R, eps=eps, maxiter=maxiter,...)
                }
         )
-    W <-crossprod(JD, COV.sqrt.i)
-    
+    W <- crossprod(JD, COV.sqrt.i)
+    W <- diag(sign(rowMeans(W)))%*%W
+  
     S <- tcrossprod(X.C,W)
+    
+    acs <- acf(S, lag.max=max(k), plot=FALSE)$acf
+    ssq_ac <- NULL
+    for(j in 1:p){
+      ssq_ac[j]<-sum(acs[k,j,j]^2)
+    }
+    ord <- order(ssq_ac, decreasing=TRUE)
+    P <- matrix(0,p,p)
+    for(j in 1:p){
+      P[j,ord[j]]<-1
+    }  
+    S <- S[,ord]
+    W <- P%*%W
+
     S <- ts(S, names=paste("Series",1:p))
     
     RES <- list(W=W, k=k, method=method, S=S)

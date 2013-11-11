@@ -1,5 +1,9 @@
 LOG of the CHANGES in the package JADE
 
+Version 1.9-91
+
+* The signs and order of the estimated components given by AMUSE, SOBI, FOBI, JADE (in a new way) and k-JADE are fixed.   
+ 
 Version 1.9-9
 
 * Improving function djd

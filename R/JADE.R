@@ -15,7 +15,7 @@ function(X,n.comp=NULL, eps = 1e-06, maxiter = 100, na.action = na.fail)
     X<-scale(X,scale=F)
     Col.center <- attr(X,"scaled:center")
     data.X<-X
-    eigen.X<-eigen(t(X)%*%X/N)
+    eigen.X<-eigen(crossprod(X,X)/N)
     U1<-eigen.X$vectors
     D1<-eigen.X$values
     
@@ -37,6 +37,7 @@ function(X,n.comp=NULL, eps = 1e-06, maxiter = 100, na.action = na.fail)
     }
 
     X <- X %*% t(W)
+   # X <- tcrossprod(X,W)
 
     dimsymm <- (n.comp*(n.comp+1))/2
     nbcm  <- dimsymm
@@ -60,7 +61,7 @@ function(X,n.comp=NULL, eps = 1e-06, maxiter = 100, na.action = na.fail)
        { 
         for (jm in (1:(im-1)))
         {
-        Xjm<- X[,jm]
+        Xjm<-X[,jm]
         Qij<-t((Xim *Xjm) %*% t(scale2) * X) %*% X - R[,im]%*%t(R[,jm])- R[,jm]%*%t(R[,im])
         CM[Range,]=sqrt(2)*Qij
         Range<-Range+n.comp
@@ -68,25 +69,30 @@ function(X,n.comp=NULL, eps = 1e-06, maxiter = 100, na.action = na.fail)
        }
     }
     
-    V<-rjd.fortran(CM)$V 
-     
-    B1<-t(V)%*%W
-    A<-iW%*%V
-    
-    keys<-order(colSums(A^2),decreasing=TRUE)
-    B<-B1[keys,]
-    if (n.comp>1)
-    {
-    signs.B1<-ifelse(B[,1]<0,-1,1)
-    B<-diag(signs.B1)%*% B
+    V <- t(rjd.fortran(CM)$V) 
+    B <- V%*%W 
+    S <- tcrossprod(data.X,B)
+ 
+    kurt <- rep(0,n.comp)
+    for(j in 1:n.comp){
+      kurt[j] <- mean(S[,j]^4)-3
     }
-    else
-    {
-    B<-sign(B[1])*B
+
+    P <- matrix(0,n.comp,n.comp)
+    ord <- order(kurt,decreasing=TRUE) 
+    for(j in 1:n.comp){
+      P[j,ord[j]] <- 1
     }  
+
+    B <- P%*%B
+  
+    if(n.comp>1){
+      B <- diag(sign(rowMeans(B)))%*%B
+    }else B <- sign(sum(B))*B
+    
     
   if(n.comp == X.cols) A <- solve(B) else A <- t(B) %*% solve(B %*% t(B))
-  S <- data.X %*% t(B)
+  S <- tcrossprod(data.X,B)
   colnames(S) <- paste("IC.", 1:n.comp, sep="")
   res<-list(A=A, W=B, S=S, Xmu=Col.center)
   class(res) <- "bss"

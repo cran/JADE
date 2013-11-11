@@ -22,7 +22,8 @@ k_JADE(X, k = 1, eps = 1e-06, maxiter = 100, na.action = na.fail)
   \item{na.action}{A function which indicates what should happen when the data
           contain 'NA's.  Default is to fail.}
 }
-
+\details{The order of the estimated components is fixed so that their fourth moments are in the decreasing order.
+}
 \value{
  A list with class 'bss' containing the following components:
   \item{A}{The estimated mixing matrix.}
@@ -33,7 +34,7 @@ k_JADE(X, k = 1, eps = 1e-06, maxiter = 100, na.action = na.fail)
 
 \references{
 \cite{Miettinen, J., Nordhausen, K., Oja, H. and Taskinen, S. (2013), Fast Equivariant JADE, 
-            In the Proceedings of \emph{38th IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP 2013)}, 6153--6157.}
+In the Proceedings of \emph{38th IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP 2013)}, 6153--6157.}
 
 }
 \author{

@@ -26,6 +26,8 @@ SOBI(X, ...)
   \item{maxiter}{convergence tolerance.}
   \item{\dots}{further arguments to be passed to or from methods.}
 }
+\details{The order of the estimated components is fixed so that the sums of squared autocovariances are in the decreasing order.
+}
 \value{
  A list with class 'bss' containing the following components:
   \item{W}{estimated unmixing matrix.}
