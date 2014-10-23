@@ -17,7 +17,7 @@ function(X, na.action = na.fail)
     r <- sqrt(rowSums(Y^2))
     Y <- r * Y
 
-    COV4 <- crossprod(Y)
+    COV4 <- crossprod(Y)/n
     
     EVD.COV4  <- eigen(COV4, symmetric=TRUE)
     W <- crossprod(EVD.COV4$vectors, COV.inv.sqrt)

@@ -1,5 +1,12 @@
 LOG of the CHANGES in the package JADE
 
+Version 1.9-92
+
+* Fixing a mistake in FOBI. There the 4th moment matrix was not divided by the sample size which means
+the corresponding eigenvalues (kurtosis measures) were to large. 
+
+* The package imports now from clue only and does not depend on it anymore.
+
 Version 1.9-91
 
 * The signs and order of the estimated components given by AMUSE, SOBI, FOBI, JADE (in a new way) and k-JADE are fixed.   
