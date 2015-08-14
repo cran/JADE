@@ -1,5 +1,5 @@
-`SIR` <-
-function(S,S.hat)
+SIR <-
+function(S, S.hat)
     {
     
     na.fail(S)
@@ -11,20 +11,20 @@ function(S,S.hat)
     if(!all(sapply(S.hat, is.numeric))) stop("'S.hat' must be numeric")
     
     S <- scale(S) 
-    S.hat <-scale(S.hat)
-    DM<-abs(cor(S,S.hat))
-    p<-dim(DM)[1]
+    S.hat <- scale(S.hat)
+    DM <- abs(cor(S, S.hat))
+    p <- dim(DM)[1]
     
-    maxcors<-numeric(p)
+    maxcors <- numeric(p)
     
     for (i in 1:(p-1))
         {
-        ind.i<-which(DM==max(DM),arr.ind=T)
-        maxcors[i]<-DM[ind.i[1,1],ind.i[1,2]]
-        DM<-DM[-ind.i[1,1],-ind.i[1,2]]
+        ind.i <- which(DM==max(DM), arr.ind=TRUE)
+        maxcors[i] <- DM[ind.i[1,1], ind.i[1,2]]
+        DM <- DM[-ind.i[1,1], -ind.i[1,2]]
         }
-    maxcors[p]<-as.numeric(DM)
-    res.in.db<- -10*log10(2-2*maxcors)
-    res<-mean(res.in.db)
+    maxcors[p] <- as.numeric(DM)
+    res.in.db <- -10*log10(2-2*maxcors)
+    res <- mean(res.in.db)
     return(res)
     }

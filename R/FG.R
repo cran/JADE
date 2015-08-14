@@ -1,41 +1,48 @@
-FG<-function(X,weight=NULL,maxiter=100,eps=1e-06, na.action = na.fail)
+FG <- function(X, weight=NULL, init=NULL, maxiter=100, eps=1e-06, na.action = na.fail)
 {
   X <- na.action(X)
-  dim.X<-dim(X)
+  dim.X <- dim(X)
     
-  if (length(dim.X)==2) type<-"Matrix"
-  if (length(dim.X)==3) type<-"Array"
-  if ((length(dim.X) %in% c(2,3))==F) stop("'X' must have two or three dimensions")
+  if (length(dim.X)==2) type <- "Matrix"
+  if (length(dim.X)==3) type <- "Array"
+  if ((length(dim.X) %in% c(2,3))==FALSE) stop("'X' must have two or three dimensions")
     
-  if (type == "Matrix")
+  if (type == "Array")
      {
-      p<-dim.X[2]
-      K<-dim.X[1]/p
-      if (floor(K) != ceiling(K)) stop("'X' must be a matrix of k stacked pxp matrices")
-      X<-array(t(X),c(p,p,K))
-      dim.X<-dim(X)
+      p <- dim.X[1]
+      K <- dim.X[3]
+      if (dim.X[1] != dim.X[2]) stop("'X' must be an array with dim of the form c(p,p,K)")
+      Xt <- aperm(X, c(1,3,2))
+      X <- matrix(Xt, ncol=p)
+      dim.X <- dim(X)
      }
-
-  if (dim.X[1] != dim.X[2]) stop("'X' must be an array with dim of the form c(p,p,K)")
-  p<-dim(X)[1]
-  K<-dim(X)[3]
+   
+   p <- dim.X[2]
+   K <- dim.X[1]/p
+   if (floor(K) != ceiling(K)) stop("'X' must be a matrix of k stacked pxp matrices")
   
-  if(is.null(weight)) weight<-rep(1,K) 
-  
-  B<-diag(p)
-  res<-.Fortran("FGALG", A=as.double(as.vector(X)),RN=as.double(weight),B=as.double(B), IP=as.integer(p),K=as.integer(K),IFAULT=as.integer(0),NF=as.integer(maxiter),EPSF=as.double(eps),result=double(1),PACKAGE="JADE") 
-  if(res$IFAULT<0) stop("some of the matrices are not symmetric")
-  if(res$IFAULT==5) stop("some of the matrices are not positive definite")
-  if(res$IFAULT==4) stop("maxiter reached without convergence")
+   if(is.null(weight)) weight <- rep(1,K) 
 
-  b<-res$B
-  V<-matrix(b,p,p)
-  D<-array(res$A,c(p,p,K))
-  if(type == "Matrix"){
-   D <- aperm(D, c(1,3,2))
-   D <- matrix(D, ncol=p)
-  }
+   if(is.null(init)) init <- diag(p)
+   B <- init
+    
+   res <- .C("FG", as.double(as.vector(X)), as.double(as.vector(B)), as.integer(c(K,p,maxiter)), as.double(as.vector(weight)), as.double(eps), res=double(p^2+1), 
+PACKAGE="JADE")$res 
 
-  list(V=V, D=D, iter=res$NF)
+   if(res[p^2+1]==1) stop("try another orthogonal matrix as initial value")
+   iter <- res[p^2+1]
+   if (iter>maxiter) stop("maxiter reached without convergence")
+
+   V <- matrix(res[1:p^2],p,p)
+   D <- X
+   for(k in 1:K){
+    D[((k-1)*p+1):(k*p),] <- crossprod(V,crossprod(X[((k-1)*p+1):(k*p),],V))
+   }
+   if(type == "Array"){
+    D <- array(t(D),c(p,p,K))
+   }
+   V
+   list(V=V, D=D, iter=iter)
 }
+
 

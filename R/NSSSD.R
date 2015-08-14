@@ -35,13 +35,13 @@ NSS.SD.default <- function(X, n.cut=NULL, ...)
     M.y2 <- cov(Y2)
     
     EVD.M.y1 <- eigen(M.y1, symmetric=TRUE)
-    M.y1.sqrt.inv <- EVD.M.y1$vectors %*% diag(sqrt(1/EVD.M.y1$values)) %*% t(EVD.M.y1$vectors)
+    M.y1.sqrt.inv <- EVD.M.y1$vectors %*% tcrossprod(diag(sqrt(1/EVD.M.y1$values)), EVD.M.y1$vectors)
     
-    M.12 <- M.y1.sqrt.inv %*% M.y2 %*% M.y1.sqrt.inv
+    M.12 <- M.y1.sqrt.inv %*% tcrossprod(M.y2, M.y1.sqrt.inv)
     
-    EVD <- eigen(M.12)
+    EVD <- eigen(M.12,, symmetric=TRUE)
     
-    W <- t(EVD$vectors)%*% M.y1.sqrt.inv
+    W <- crossprod(EVD$vectors, M.y1.sqrt.inv)
     S <- tcrossprod(Y,W)
     S <- ts(S, names=paste("Series",1:p))
     

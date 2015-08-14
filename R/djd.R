@@ -12,7 +12,7 @@
 
 djd <- function(X, G="max", r=2, eps = 1e-06, maxiter = 500)
     {
-    G <- match.arg(G, c("max","pow","log"))
+    G <- match.arg(G, c("max", "pow", "log"))
     
     WN <- eigen(X[,,1])$vectors   
     p <- dim(X)[1]
@@ -45,19 +45,20 @@ djd.pow <- function(X,W,r,WN,k,p,eps,maxiter)
     for (i in 1:p){
                     wn <- (WN[,i, drop=FALSE])
                     for (it in 1:maxiter){
-                        w<-wn
-                        wn<- matrix(0,p,1)
+                        w <- wn
+                        wn <- matrix(0,p,1)
                         for (mi in 1:k){
-                            wn <- wn + 2*sign(as.numeric(t(w) %*% X[,,mi] %*% w)) * r*(abs(as.numeric(t(w) %*% X[,,mi] %*% w)))^(r-1) * X[,,mi] %*% w}
-                        if(floor(it/5)==it/5){
-                         wn<-0.5*wn+0.5*w
+                            wXmiw <- as.numeric(crossprod(w, X[,,mi]) %*% w)
+                            wn <- wn + 2*sign(wXmiw) * r*(abs(wXmiw))^(r-1) * X[,,mi] %*% w}
+                        if(floor(it/5) == it/5){
+                         wn <- 0.5*wn + 0.5*w
                         }
                         wn <- wn- crossprod(W)%*%wn
                         wn <- wn / sqrt(sum(wn^2)) 
                         if (sqrt(sum((w-wn)^2))<eps || sqrt(sum((w+wn)^2))<eps) break
                         if (it==maxiter) stop("no convergence reached")
                         }
-                    W[i,]<-t(wn)
+                    W[i,] <- t(wn)
                     }
     t(W)
     }
@@ -68,22 +69,23 @@ djd.log <- function(X,W,WN,k,p,eps,maxiter)
     for (i in 1:p){
                     wn <- (WN[,i, drop=FALSE])
                     for (it in 1:maxiter){
-                        w<-wn
-                        wn<- matrix(0,p,1)
+                        w <- wn
+                        wn <- matrix(0,p,1)
                         for (mi in 1:k){
-                            wn <- wn +  1/as.numeric(crossprod(w, X[,,mi]) %*% w)* crossprod(X[,,mi], w)}
+                            wXmi <- crossprod(w, X[,,mi])
+                            wn <- wn +  1/as.numeric(wXmi %*% w)* t(wXmi)}
                         wn <- wn- crossprod(W)%*%wn
                         wn <- wn / sqrt(sum(wn^2)) 
                         if (sqrt(sum((w-wn)^2))<eps || sqrt(sum((w+wn)^2))<eps) break
                         if (it==maxiter) stop("no convergence reached")
                         }
-                    W[i,]<-t(wn)
+                    W[i,] <- t(wn)
                     }
     t(W)
     }
 
 
-rand_orth <- function(p,W0=NULL)
+rand_orth <- function(p, W0 = NULL)
 {
    W <- matrix(0,p,p)
    if(is.matrix(W0)){
@@ -94,7 +96,7 @@ rand_orth <- function(p,W0=NULL)
    V <- matrix(rnorm(p*(p-k)),p,p-k)
  
    for(i in 1:(p-k)){
-     V[,i] <- V[,i]-W%*%t(W)%*%V[,i]  
+     V[,i] <- V[,i]-tcrossprod(W) %*% V[,i]  
      V[,i] <- V[,i]/sqrt(sum(V[,i]^2))
      W[,k+i] <- V[,i]
    }
@@ -119,33 +121,34 @@ djd.max <- function(X,W,r,k,p,nr=100,eps,maxiter)
 
         winit <- matrix(0,nrow(inits),p)
         for(j in 1:nrow(inits)){
-          winit[j,] <- U%*%inits[j,] 
+          winit[j,] <- U %*% inits[j,] 
         }
   
         dsum <- NULL
         for(j in 1:nrow(inits)){
           dsum[j] <- 0
           for(l in 1:k){
-            dsum[j] <- dsum[j]+abs((t(winit[j,])%*%X[,,l]%*%winit[j,])^r)
+            dsum[j] <- dsum[j]+abs((t(winit[j,]) %*% X[,,l] %*% winit[j,])^r)
           }
         } 
         wn <- winit[which(dsum==max(dsum)),]
     
 
                     for (it in 1:maxiter){
-                        w<-wn
-                        wn<- matrix(0,p,1)
+                        w <- wn
+                        wn <- matrix(0,p,1)
                         for (mi in 1:k){
-                            wn <- wn + 2*sign(as.numeric(t(w) %*% X[,,mi] %*% w)) * r*(abs(as.numeric(t(w) %*% X[,,mi] %*% w)))^(r-1) * X[,,mi] %*% w}
+                            wXmiw <- as.numeric(crossprod(w, X[,,mi]) %*% w)
+                            wn <- wn + 2*sign(wXmiw) * r*abs(wXmiw)^(r-1) * X[,,mi] %*% w}
                         if(floor(it/5)==it/5){
                          wn<-0.5*wn+0.5*w
                         }
-                        wn <- wn- tcrossprod(W)%*%wn
+                        wn <- wn- tcrossprod(W) %*% wn
                         wn <- wn / sqrt(sum(wn^2)) 
                         if (sqrt(sum((w-wn)^2))<eps || sqrt(sum((w+wn)^2))<eps) break
                         if (it==maxiter) stop("no convergence reached")
                         }
-                    W[,i]<-t(wn)
+                    W[,i] <- t(wn)
                     }
    
          W[,p] <- rand_orth(p,W[,1:(p-1)])[,p]

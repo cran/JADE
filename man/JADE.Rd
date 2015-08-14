@@ -5,7 +5,7 @@
 \description{
   This is an \pkg{R} version of Cardoso's JADE ICA algorithm (for real data) ported from matlab. The ported version is 1.5. Some minor changes compared to the matlab function are explained in the details section. The matlab code can be found for example on the ICA central homepage.
 
-The function uses \code{\link{rjd.fortran}} for the joint diagonalization.
+The function uses \code{\link{frjd}} for the joint diagonalization.
 }
 \usage{
 JADE(X, n.comp = NULL, eps = 1e-06, maxiter = 100, na.action = na.fail)
@@ -43,8 +43,7 @@ JADE(X, n.comp = NULL, eps = 1e-06, maxiter = 100, na.action = na.fail)
   \item{Xmu }{The location of the original data.}
 }
 \references{
-   \cite{Cardoso, J.-F. and Souloumiac, A., (1993), Blind beamforming for non Gaussian signals, \emph{IEE Proceedings-F}, \bold{140},  362--370. 
-   \url{ftp://sig.enst.fr/pub/jfc/Papers/iee.ps.gz}.}  
+   \cite{Cardoso, J.-F. and Souloumiac, A., (1993), Blind beamforming for non Gaussian signals, \emph{IEE Proceedings-F}, \bold{140},  362--370.}  
 }
 \author{Jean-Francois Cardoso. Ported to \pkg{R} by Klaus Nordhausen}
 

@@ -8,7 +8,7 @@ NSS.JD Method for Nonstationary Blind Source Separation
 }
 \description{
 The NSS.JD method for nonstationary blind source separation. The method first whitens the complete data and then divides it into K time intervals.
-Then \code{\link{rjd.fortran}} is used to jointly diagonalize the covariance matrices computed for the individual time intervals to find the sources.
+Then \code{\link{frjd}} is used to jointly diagonalize the covariance matrices computed for the individual time intervals to find the sources.
 }
 \usage{
 NSS.JD(X, ...)
@@ -22,8 +22,8 @@ NSS.JD(X, ...)
   \item{K}{number of intervals to be used.}
   \item{Tau}{By default 0 which means covariance are computed of each time interval, if Tau is an integer > 0 then rather autocovariance matrices at lag Tau are used for the joint diagonaliation.}
   \item{n.cuts}{if NULL, then the time series is divided into K equally long intervals. To specify intervals n.cuts should be given in the form c(1,n.cut.1,...,n.cut.k, nrow(X)) to specify where to split the time series.}
-  \item{eps}{maximum number of iterations for \code{\link{rjd.fortran}}.}
-  \item{maxiter}{convergence tolerance for \code{\link{rjd.fortran}}.}
+  \item{eps}{maximum number of iterations for \code{\link{frjd}}.}
+  \item{maxiter}{convergence tolerance for \code{\link{frjd}}.}
   \item{\dots}{further arguments to be passed to or from methods.}
 }
 \details{

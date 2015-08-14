@@ -1,4 +1,4 @@
-`amari.error` <-
+amari.error <-
 function(W.hat,A,standardize=F)
     {
     if (is.matrix(W.hat)==FALSE) stop("'W.hat' must be a square matrix")
@@ -14,10 +14,10 @@ function(W.hat,A,standardize=F)
     
     if (!is.logical(standardize)) stop("'standardize' must be logical")
     
-    if (standardize==T)
+    if (standardize==TRUE)
         {
-        W.hat<-.standard.B(W.hat)
-        A<-solve(.standard.B(solve(A)))
+        W.hat <- .standard.B(W.hat)
+        A <- solve(.standard.B(solve(A)))
         }
     
     P.abs <- abs(W.hat %*% A)

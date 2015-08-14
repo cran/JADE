@@ -6,14 +6,15 @@ Joint Diagonalization of Real Positive-definite Matrices
 }
 \description{
 This is a slightly modified version of Flury's FG algorithm for the joint diagonalization of k positive-definite matrices.
-The underlying function is written in Fortran.
+The underlying function is written in C.
 }
 \usage{
-FG(X, weight = NULL, maxiter = 100, eps = 1e-06, na.action = na.fail)
+FG(X, weight = NULL, init = NULL, maxiter = 100, eps = 1e-06, na.action = na.fail)
 }
 \arguments{
   \item{X}{A matrix of k stacked pxp matrices with dimension c(kp,p) or an array with dimension c(p,p,k).}
   \item{weight}{A vector of length k to give weight to the different matrices, if NULL, all matrices have equal weight}
+  \item{init}{???, if NULL, ???}
   \item{maxiter}{ Maximum number of iterations.}
   \item{eps}{ Convergence tolerance.}
   \item{na.action}{A function which indicates what should happen when the data

@@ -28,9 +28,9 @@ NSS.JD.default <- function(X, K=12, Tau=0, n.cuts=NULL, eps = 1e-06, maxiter = 1
     MEAN <- colMeans(X)
     COV <- cov(X)
     EVD.COV <- eigen(COV, symmetric=TRUE)
-    COV.sqrt.inv <- EVD.COV$vectors %*% diag(sqrt(1/EVD.COV$values)) %*% t(EVD.COV$vectors)
+    COV.sqrt.inv <- EVD.COV$vectors %*% tcrossprod(diag(sqrt(1/EVD.COV$values)), EVD.COV$vectors)
     X.C <- sweep(X,2,MEAN,"-")
-    Y <- X.C %*% COV.sqrt.inv
+    Y <- tcrossprod(X.C, COV.sqrt.inv)
     
     p <- ncol(X)
     
@@ -44,8 +44,8 @@ NSS.JD.default <- function(X, K=12, Tau=0, n.cuts=NULL, eps = 1e-06, maxiter = 1
         R[,,i] <- M.x(Y[N.cuts[i]:(N.cuts[i+1]-1),], Tau=Tau)
         }
     
-    W  <- t(rjd.fortran(R, eps=eps, maxiter=maxiter)$V) %*% COV.sqrt.inv 
-    S <- tcrossprod(X.C,W)
+    W  <- crossprod(frjd(R, eps=eps, maxiter=maxiter)$V, COV.sqrt.inv) 
+    S <- tcrossprod(X.C, W)
     S <- ts(S, names=paste("Series",1:p))
     
     RES <- list(W=W, k=Tau, n.cut=n.cuts, K=K, S=S)

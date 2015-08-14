@@ -1,4 +1,4 @@
-multscatter<- function(scatterlist, X, toshape=TRUE)
+multscatter <- function(scatterlist, X, toshape=TRUE)
     {
     k <- length(scatterlist)
     p <- ncol(X)

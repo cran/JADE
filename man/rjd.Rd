@@ -1,13 +1,15 @@
 \name{rjd}
 \alias{rjd}
+\alias{frjd} 
 \alias{rjd.fortran} 
 \title{Joint Diagonalization of Real Matrices  }
 \description{
-  This is an \pkg{R} version of Cardoso's rjd matlab function for joint diagonalization of k real-valued square matrices. A version written in Fortran is also available and preferrable.
+  This is an \pkg{R} version of Cardoso's rjd matlab function for joint diagonalization of k real-valued square matrices. A version written in C is also available and preferrable.
   
 }
 \usage{
 rjd(X, eps = 1e-06, maxiter = 100, na.action = na.fail)
+frjd(X, weight = NULL, maxiter = 100, eps = 1e-06, na.action = na.fail)
 rjd.fortran(X, weight = NULL, maxiter = 100, eps = 1e-06, na.action = na.fail)
 }
 %- maybe also 'usage' for other objects documented here.
@@ -31,14 +33,14 @@ rjd.fortran(X, weight = NULL, maxiter = 100, eps = 1e-06, na.action = na.fail)
   \item{V }{An orthogonal matrix.}
   \item{D }{A stacked matrix with the diagonal matrices or an array with the diagonal matrices. The form of the output
             depends on the form of the input.}
-  \item{iter}{The Fortran function returns also the number of iterations.}
+  \item{iter}{The \code{frjd} function returns also the number of iterations.}
 }
 
 
 \references{
    \cite{Cardoso, J.-F. and Souloumiac, A., (1996), Jacobi angles for simultaneous diagonalization, \emph{SIAM J. Mat. Anal. Appl.}, \bold{17},  161--164.}  
 }
-\author{Jean-Francois Cardoso. Ported to \pkg{R} by Klaus Nordhausen. Fortran by Jari Miettinen}
+\author{Jean-Francois Cardoso. Ported to \pkg{R} by Klaus Nordhausen. C code by Jari Miettinen}
 
 \examples{
 Z <- matrix(runif(9), ncol = 3)
@@ -57,20 +59,20 @@ round(U \%*\% res.matrix$V, 4) # should be a signed permutation
 
 round(res.matrix$D, 4)
 
-# compare to Fortran version
+# compare to C version
 
-#res.matrix.F <- rjd.fortran(X.matrix)
-#res.matrix.F$V
-#round(U \%*\% res.matrix.F$V, 4)
-#round(res.matrix.F$D, 4)
+#res.matrix.C <- frjd(X.matrix)
+#res.matrix.C$V
+#round(U \%*\% res.matrix.C$V, 4)
+#round(res.matrix.C$D, 4)
 
 X.array <- aperm(array(t(X.matrix), dim = c(3,3,4)), c(2,1,3))
 
 res.array <- rjd(X.array)
 round(res.array$D, 4)
 
-res.array.F <- rjd.fortran(X.array)
-round(res.array.F$D, 4)
+res.array.C <- frjd(X.array)
+round(res.array.C$D, 4)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

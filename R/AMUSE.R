@@ -25,16 +25,16 @@ AMUSE.default <- function(x,k=1,...)
     x.c <- sweep(x,2,colMeans(x), "-")
     COV <- crossprod(x.c)/(n-1)
     COV.EVD <- eigen(COV, symmetric = TRUE)
-    COV.sqrt.i <- COV.EVD$vectors %*% (diag(COV.EVD$values^(-0.5))) %*% t(COV.EVD$vectors)
+    COV.sqrt.i <- COV.EVD$vectors %*% tcrossprod(diag(COV.EVD$values^(-0.5)), COV.EVD$vectors)
 
     ACOVk <- crossprod(x.c[1:(n-k),],x.c[(k+1):n,])/(n-k)
     ACOVk.sym <- (ACOVk + t(ACOVk))/2
-    COViACOVk <- COV.sqrt.i %*% ACOVk.sym %*% COV.sqrt.i
+    COViACOVk <- crossprod(COV.sqrt.i,tcrossprod(ACOVk.sym,COV.sqrt.i))
     
     EVD <- eigen(COViACOVk, symmetric=TRUE)
     
-    W <- t(EVD$vectors) %*% COV.sqrt.i
-    W <- diag(sign(rowMeans(W)))%*%W
+    W <- crossprod(EVD$vectors, COV.sqrt.i)
+    W <- sweep(W, 1, sign(rowMeans(W)), "*")
 
     EV <- EVD$values
     S <- tcrossprod(x,W)
@@ -71,7 +71,7 @@ function(x, ...)
 `plot.bss` <-
 function(x, ...)
     {
-    S<-x$S
+    S <- x$S
     
     if (is.ts(S)) plot.ts(S,y=NULL, ...) else pairs(S, ...)
     }

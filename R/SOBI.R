@@ -19,16 +19,16 @@ SOBI <- function(X,...) UseMethod("SOBI")
 #   k = lag used
 #   S = sources as a time series object
 
-SOBI.default <- function(X, k=12, method="rjd.fortran", eps = 1e-06, maxiter = 100, ...)
+SOBI.default <- function(X, k=12, method="frjd", eps = 1e-06, maxiter = 100, ...)
     {
     if (length(k)==1) k <- 1:k 
     nk <- length(k)
-    method <- match.arg(method, c("rjd", "djd", "rjd.fortran"))
+    method <- match.arg(method, c("rjd", "djd", "frjd"))
     
     MEAN <- colMeans(X)
     COV <- cov(X)
     EVD <- eigen(COV, symmetric = TRUE)
-    COV.sqrt.i <- EVD$vectors %*% (diag(EVD$values^(-0.5))) %*% t(EVD$vectors)
+    COV.sqrt.i <- EVD$vectors %*% tcrossprod(diag(EVD$values^(-0.5)),EVD$vectors)
     X.C <- sweep(X,2,MEAN,"-")
     Y <- tcrossprod(X.C,COV.sqrt.i)
     p <- ncol(X)
@@ -44,8 +44,8 @@ SOBI.default <- function(X, k=12, method="rjd.fortran", eps = 1e-06, maxiter = 1
     
     
     JD <- switch(method,
-        rjd.fortran = {
-                      rjd.fortran(R, eps = eps, maxiter = maxiter)$V
+        frjd = {
+                      frjd(R, eps = eps, maxiter = maxiter)$V
                       }
         ,
         "rjd"={
@@ -57,9 +57,9 @@ SOBI.default <- function(X, k=12, method="rjd.fortran", eps = 1e-06, maxiter = 1
                }
         )
     W <- crossprod(JD, COV.sqrt.i)
-    W <- diag(sign(rowMeans(W)))%*%W
-  
-    S <- tcrossprod(X.C,W)
+    #W <- diag(sign(rowMeans(W)))%*%W
+    W <- sweep(W, 1, sign(rowMeans(W)), "*")
+    S <- tcrossprod(X.C, W)
     
     acs <- acf(S, lag.max=max(k), plot=FALSE)$acf
     ssq_ac <- NULL
@@ -72,7 +72,7 @@ SOBI.default <- function(X, k=12, method="rjd.fortran", eps = 1e-06, maxiter = 1
       P[j,ord[j]]<-1
     }  
     S <- S[,ord]
-    W <- P%*%W
+    W <- P %*% W
 
     S <- ts(S, names=paste("Series",1:p))
     

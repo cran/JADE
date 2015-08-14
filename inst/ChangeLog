@@ -1,5 +1,13 @@
 LOG of the CHANGES in the package JADE
 
+Version 1.9-93
+
+* Adjusting the description and namespace files to CRAN policies.
+* Major rehaul of most of the code.
+* New function cjd.
+* The function rjd_fortran has been depreciated and from now on frjd is prefered.
+* Vignette has been added to the package.
+
 Version 1.9-92
 
 * Fixing a mistake in FOBI. There the 4th moment matrix was not divided by the sample size which means

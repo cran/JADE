@@ -2,17 +2,17 @@
 \alias{JADE-package}
 \docType{package}
 \title{
-JADE and other BSS methods as well as some BSS performance criteria
+Blind Source Separation Methods Based on Joint Diagonalization and Some BSS Performance Criteria
 }
 \description{
-The package ports JF Cardoso's JADE algorithm as well as his function for joint diagonalization. The package also includes several other blind source separation (BSS) methods, like AMUSE and SOBI, as well as some criteria for performance evaluation of BSS algorithms. 
+Cardoso's JADE algorithm as well as his functions for joint diagonalization are ported to R. Also several other blind source separation (BSS) methods, like AMUSE and SOBI, and some criteria for performance evaluation of BSS algorithms, are given.
 }
 \details{
 \tabular{ll}{
 Package: \tab JADE\cr
 Type: \tab Package\cr
-Version: \tab 1.9-92\cr
-Date: \tab 2014-23-10\cr
+Version: \tab 1.9-93\cr
+Date: \tab 2015-08-14\cr
 License: \tab GPL (>= 2)\cr
 }
 

@@ -7,7 +7,7 @@ Fast Equivariant k-JADE Algorithm for ICA
 \description{
 This algorithm generalizes the \code{\link{JADE}} algorithm, as it provides \code{\link{JADE}} when k is set to the number of dimensions. Otherwise k can be considered as a way to reduce the number of cumulant matrices to be jointly diagonalized. Hence small values of k speed up the method considerably in high-dimensional cases. In general, k can be considered as maximum number of underlying identical sources.  
  
-The function uses \code{\link{FOBI}} as an initial estimate and \code{\link{rjd.fortran}} for the joint diagonalization.
+The function uses \code{\link{FOBI}} as an initial estimate and \code{\link{frjd}} for the joint diagonalization.
 
 }
 \usage{
@@ -41,13 +41,13 @@ In the Proceedings of \emph{38th IEEE International Conference on Acoustics, Spe
 Jari Miettinen
 }
 \note{
-The function uses \code{\link{FOBI}} as initial estimate and \code{\link{rjd.fortran}} for the joint diagonalization.
+The function uses \code{\link{FOBI}} as initial estimate and \code{\link{frjd}} for the joint diagonalization.
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link{JADE}}, \code{\link{FOBI}}, \code{\link{rjd.fortran}}
+\code{\link{JADE}}, \code{\link{FOBI}}, \code{\link{frjd}}
 }
 \examples{
 # 3 source and 3 signals
