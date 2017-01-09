@@ -46,8 +46,10 @@ The model assumes that the mean of the p-variate time series is constant but the
              sources from noisy mixtures, Proceedings of the 2000
             \emph{IEEE Signal Processing Society Workshop Neural Networks for Signal Processing X}, 1, 405--414.}
             
-\cite{Nordhausen K. (2013), On robustifying some second order blind source separation methods for nonstationary time series, 
-            \emph{to appear in Statistical Papers}, ??, ???--???.}
+\cite{Nordhausen K. (2014), On robustifying some second order blind source separation methods for nonstationary time series, 
+            \emph{Statistical Papers}, 55, 141--156.}
+
+\cite{Miettinen, J., Nordhausen, K. and Taskinen, S. (2017), Blind Source Separation Based on Joint Diagonalization in R: The Packages JADE and BSSasymp, \emph{Journal of Statistical Software}, \bold{76}, 1--31, <doi:10.18637/jss.v076.i02>.}
 
 }
 

@@ -1,0 +1,26 @@
+bibentry(bibtype = "Article",
+  title        = "Blind Source Separation Based on Joint Diagonalization in {R}: The Packages {JADE} and {BSSasymp}",
+  author       = c(person(given = "Jari",
+                          family = "Miettinen",
+                          email = "jari.p.miettinen@jyu.fi"),
+                   person(given = "Klaus",
+                          family = "Nordhausen",
+                          email = "klaus.nordhausen@utu.fi"),
+                   person(given = "Sara",
+                          family = "Taskinen",
+                          email = "sara.l.taskinen@jyu.fi")),
+  journal      = "Journal of Statistical Software",
+  year         = "2017",
+  volume       = "76",
+  number       = "2",
+  pages        = "1--31",
+  doi          = "10.18637/jss.v076.i02",
+
+  header       = "To cite JADE/BSSasymp in publications use:",
+  textVersion  =
+  paste("Jari Miettinen, Klaus Nordhausen, Sara Taskinen (2017).",
+        "Blind Source Separation Based on Joint Diagonalization in R: The Packages JADE and BSSasymp.",
+        "Journal of Statistical Software, 76(2), 1-31.",
+        "doi:10.18637/jss.v076.i02")
+)
+

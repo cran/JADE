@@ -11,12 +11,17 @@ Cardoso's JADE algorithm as well as his functions for joint diagonalization are 
 \tabular{ll}{
 Package: \tab JADE\cr
 Type: \tab Package\cr
-Version: \tab 1.9-93\cr
-Date: \tab 2015-08-14\cr
+Version: \tab 2.0-0\cr
+Date: \tab 2017-01-09\cr
 License: \tab GPL (>= 2)\cr
 }
 
 }
+
+\references{
+\cite{Miettinen, J., Nordhausen, K. and Taskinen, S. (2017), Blind Source Separation Based on Joint Diagonalization in R: The Packages JADE and BSSasymp, \emph{Journal of Statistical Software}, \bold{76}, 1--31, <doi:10.18637/jss.v076.i02>.}
+}
+
 \author{
 Klaus Nordhausen, Jean-Francois Cardoso, Jari Miettinen, Hannu Oja, Esa Ollila, Sara Taskinen
 

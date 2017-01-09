@@ -73,7 +73,9 @@ function(x, ...)
     {
     S <- x$S
     
-    if (is.ts(S)) plot.ts(S,y=NULL, ...) else pairs(S, ...)
+    if (is.ts(S)) {plot.ts(S,y=NULL, ...)} else {
+        if (ncol(S) > 2) {pairs(S, ...)} else {plot(S, ...)}
+        }
     }
 
 # coef method for objects of class "bss"

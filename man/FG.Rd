@@ -13,8 +13,8 @@ FG(X, weight = NULL, init = NULL, maxiter = 100, eps = 1e-06, na.action = na.fai
 }
 \arguments{
   \item{X}{A matrix of k stacked pxp matrices with dimension c(kp,p) or an array with dimension c(p,p,k).}
-  \item{weight}{A vector of length k to give weight to the different matrices, if NULL, all matrices have equal weight}
-  \item{init}{???, if NULL, ???}
+  \item{weight}{A vector of length k to give weight to the different matrices, if NULL, all matrices have equal weight.}
+  \item{init}{Initial value for the orthogonal matrix to be estimated, if NULL, the identity matrix is used.}
   \item{maxiter}{ Maximum number of iterations.}
   \item{eps}{ Convergence tolerance.}
   \item{na.action}{A function which indicates what should happen when the data

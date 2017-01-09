@@ -4,7 +4,7 @@
 \title{Plotting an Object of Class bss}
 \description{
 Plots the estimated sources resulting from an bss method. If the bss method is based on second order assumptions and returned the sources as a time series object it will plot the sources 
-using \code{plot.ts}, otherwise it will plot a scatter plot matrix using \code{pairs}. 
+using \code{plot.ts}, otherwise it will plot a scatter plot matrix using \code{pairs} or \code{plot} if there are only two sources. 
 }
 \usage{
 \method{plot}{bss}(x, ...)
@@ -18,7 +18,7 @@ using \code{plot.ts}, otherwise it will plot a scatter plot matrix using \code{p
 \author{Klaus Nordhausen}
 
 \seealso{
-\code{\link{plot.ts}}, \code{\link{pairs}}
+\code{\link{plot.ts}}, \code{\link{pairs}}, \code{\link{plot}}
 }
 \examples{
 A<- matrix(rnorm(9),3,3)

@@ -2,15 +2,16 @@ Package: JADE
 Type: Package
 Title: Blind Source Separation Methods Based on Joint Diagonalization
         and Some BSS Performance Criteria
-Version: 1.9-93
-Date: 2015-08-14
+Version: 2.0-0
+Date: 2017-01-09
 Author: Klaus Nordhausen, Jean-Francois Cardoso, Jari Miettinen, Hannu Oja, Esa Ollila, Sara Taskinen
 Maintainer: Klaus Nordhausen <klaus.nordhausen@utu.fi>
 Imports: clue, graphics
 Suggests: ICS, ICSNP
 Description: Cardoso's JADE algorithm as well as his functions for joint diagonalization are ported to R. Also several other blind source separation (BSS) methods, like AMUSE and SOBI, and some criteria for performance evaluation of BSS algorithms, are given. 
 License: GPL (>= 2)
+LazyData: true
 NeedsCompilation: yes
-Packaged: 2015-08-14 13:30:01 UTC; klanor
+Packaged: 2017-01-09 10:22:50 UTC; klanor
 Repository: CRAN
-Date/Publication: 2015-08-14 20:13:30
+Date/Publication: 2017-01-09 15:16:43

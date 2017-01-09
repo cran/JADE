@@ -39,8 +39,13 @@ SOBI(X, ...)
 \cite{Belouchrani, A., Abed-Meriam, K., Cardoso, J.F. and Moulines, R. (1997), A blind source separation technique using second-order statistics, 
             \emph{IEEE Transactions on Signal Processing}, 434--444.}
             
-\cite{Miettinen, J., Nordhausen, K., Oja, H. and Taskinen, S. (2013),  Deflation-based Separation of Uncorrelated Stationary Time Series, 
-            \emph{Journal of Multivariate Analysis}, ??, ???--???.}
+\cite{Miettinen, J., Nordhausen, K., Oja, H. and Taskinen, S. (2014),  Deflation-based Separation of Uncorrelated Stationary Time Series, 
+            \emph{Journal of Multivariate Analysis}, 123, 214--227.} 
+
+\cite{Miettinen, J., Illner, K., Nordhausen, K., Oja, H., Taskinen, S. and Theis, F.J. (2016),  Separation of Uncorrelated Stationary Time Series Using Autocovariance Matrices, 
+            \emph{Journal of Time Series Analysis}, 37, 337--354.} 
+
+\cite{Miettinen, J., Nordhausen, K. and Taskinen, S. (2017), Blind Source Separation Based on Joint Diagonalization in R: The Packages JADE and BSSasymp, \emph{Journal of Statistical Software}, \bold{76}, 1--31, <doi:10.18637/jss.v076.i02>.}
 
 }
 \author{Klaus Nordhausen}

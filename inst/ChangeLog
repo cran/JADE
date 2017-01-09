@@ -1,5 +1,13 @@
 LOG of the CHANGES in the package JADE
 
+Version 2.0-0
+
+* The corresponding JSS paper has now appeared and therefore was added as a reference in the CITATION file
+* Added the new data set CPPdata and the three underlying source wav files
+* plot.bss uses now plot if there are only two sources and they are not time series 
+* updating many references in the help files and other polishing of the documentation.
+
+
 Version 1.9-93
 
 * Adjusting the description and namespace files to CRAN policies.

@@ -41,6 +41,8 @@ The lag \code{k} has a huge effect on the performance and it should be chosen so
             
 \cite{Miettinen, J., Nordhausen, K., Oja, H. and Taskinen, S. (2012), Statistical properties of a blind source separation estimator for stationary time series, 
             \emph{Statistics & Probability Letters}, 82, 1865--1873.}
+            
+\cite{Miettinen, J., Nordhausen, K. and Taskinen, S. (2017), Blind Source Separation Based on Joint Diagonalization in R: The Packages JADE and BSSasymp, \emph{Journal of Statistical Software}, \bold{76}, 1--31, <doi:10.18637/jss.v076.i02>.}            
 }
 \author{Klaus Nordhausen}
 

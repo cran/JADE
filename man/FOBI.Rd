@@ -27,7 +27,12 @@ A list with class 'bss' containing the following components:
 }
 \references{
 \cite{Cardoso, J.-F. (1989), Source separation using higher order moments, in Proceedings of {IEEE} International Conference
-                       on Accoustics, Speech and Signal Processing}, 2109--2112
+                       on Accoustics, Speech and Signal Processing, 2109--2112.}
+
+\cite{Miettinen, J., Taskinen S., Nordhausen, K. and Oja, H. (2015), Fourth Moments and Independent
+Component Analysis, \emph{Statistical Science}, 30, 372--390.}
+
+\cite{Miettinen, J., Nordhausen, K. and Taskinen, S. (2017), Blind Source Separation Based on Joint Diagonalization in R: The Packages JADE and BSSasymp, \emph{Journal of Statistical Software}, \bold{76}, 1--31, <doi:10.18637/jss.v076.i02>.}
 }
 \author{Klaus Nordhausen}
 

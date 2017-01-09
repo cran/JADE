@@ -36,6 +36,8 @@ k_JADE(X, k = 1, eps = 1e-06, maxiter = 100, na.action = na.fail)
 \cite{Miettinen, J., Nordhausen, K., Oja, H. and Taskinen, S. (2013), Fast Equivariant JADE, 
 In the Proceedings of \emph{38th IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP 2013)}, 6153--6157.}
 
+\cite{Miettinen, J., Nordhausen, K. and Taskinen, S. (2017), Blind Source Separation Based on Joint Diagonalization in R: The Packages JADE and BSSasymp, \emph{Journal of Statistical Software}, \bold{76}, 1--31, <doi:10.18637/jss.v076.i02>.}
+
 }
 \author{
 Jari Miettinen

@@ -39,6 +39,8 @@ rjd.fortran(X, weight = NULL, maxiter = 100, eps = 1e-06, na.action = na.fail)
 
 \references{
    \cite{Cardoso, J.-F. and Souloumiac, A., (1996), Jacobi angles for simultaneous diagonalization, \emph{SIAM J. Mat. Anal. Appl.}, \bold{17},  161--164.}  
+   
+   \cite{Miettinen, J., Nordhausen, K. and Taskinen, S. (2017), Blind Source Separation Based on Joint Diagonalization in R: The Packages JADE and BSSasymp, \emph{Journal of Statistical Software}, \bold{76}, 1--31, <doi:10.18637/jss.v076.i02>.}
 }
 \author{Jean-Francois Cardoso. Ported to \pkg{R} by Klaus Nordhausen. C code by Jari Miettinen}
 

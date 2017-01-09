@@ -28,8 +28,12 @@ MD(W.hat, A)
 \value{The value of the MD index.}
 
 \references{
-\cite{Ilmonen, P., Nordhausen, K., Oja, H. and Ollila, E. (2010): A New Performance Index for ICA: Properties, Computation and Asymptotic Analysis. 
+\cite{Ilmonen, P., Nordhausen, K., Oja, H. and Ollila, E. (2010), A New Performance Index for ICA: Properties, Computation and Asymptotic Analysis. 
 In Vigneron, V., Zarzoso, V., Moreau, E., Gribonval, R. and Vincent, E. (editors) \emph{Latent Variable Analysis and Signal Separation}, 229--236, Springer.}
+
+\cite{Nordhausen, K., Ollila, E. and Oja, H. (2011), On the Performance Indices of ICA and Blind Source Separation. In the Proceedings of \emph{2011 IEEE 12th International Workshop on Signal Processing Advances in Wireless Communications (SPAWC 2011)}, 486--490.}
+
+\cite{Miettinen, J., Nordhausen, K. and Taskinen, S. (2017), Blind Source Separation Based on Joint Diagonalization in R: The Packages JADE and BSSasymp, \emph{Journal of Statistical Software}, \bold{76}, 1--31, <doi:10.18637/jss.v076.i02>.}
 }
 \author{Klaus Nordhausen}
 

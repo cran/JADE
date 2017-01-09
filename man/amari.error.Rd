@@ -31,7 +31,9 @@ amari.error(W.hat, A, standardize = F)
   The value of the Amari Error.
 }
 \references{
-   \cite{Amari, S., Cichocki, A. and Yang, H.H. (1996), A new learning algorithm for blind signal separation, \emph{Advances in Neural Information Processing Systems}, \bold{8},  757--763. }  
+   \cite{Amari, S., Cichocki, A. and Yang, H.H. (1996), A new learning algorithm for blind signal separation, \emph{Advances in Neural Information Processing Systems}, \bold{8},  757--763. }
+   
+   \cite{Nordhausen, K., Ollila, E. and Oja, H. (2011), On the Performance Indices of ICA and Blind Source Separation. In the Proceedings of \emph{2011 IEEE 12th International Workshop on Signal Processing Advances in Wireless Communications (SPAWC 2011)}, 486--490.}  
 }
 \author{Klaus Nordhausen}
 
