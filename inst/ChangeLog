@@ -1,5 +1,11 @@
 LOG of the CHANGES in the package JADE
 
+Version 2.0-1
+
+* Registering the C routines.
+* Updating the vignette.
+* Updating some documentation.
+
 Version 2.0-0
 
 * The corresponding JSS paper has now appeared and therefore was added as a reference in the CITATION file

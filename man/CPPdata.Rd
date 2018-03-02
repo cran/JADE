@@ -35,8 +35,8 @@ An example analysis of the data is given in Miettinen et al. (2017).
 # the data was created as follows:
 library("tuneR")
 S1 <- readWave(system.file("datafiles/source5.wav", package = "JADE"))
-S2 <- readWave(system.file("datafiles/source5.wav", package = "JADE"))
-S3 <- readWave(system.file("datafiles/source5.wav", package = "JADE"))
+S2 <- readWave(system.file("datafiles/source7.wav", package = "JADE"))
+S3 <- readWave(system.file("datafiles/source9.wav", package = "JADE"))
 
 set.seed(321)
 NOISE <- noise("white", duration = 50000)
