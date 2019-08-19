@@ -22,8 +22,8 @@ SOBI(X, ...)
   \item{X}{a numeric matrix or a multivariate time series object of class \code{\link{ts}}. Missing values are not allowed.}
   \item{k}{if a single integer, then the lags 1:k are used, if an integer vector, then these are used as the lags.}
   \item{method}{method to use for the joint diagonalization, options are \code{\link{djd}}, \code{\link{rjd}} and \code{\link{frjd}}}. 
-  \item{eps}{maximum number of iterations.}
-  \item{maxiter}{convergence tolerance.}
+  \item{eps}{convergence tolerance.}
+  \item{maxiter}{maximum number of iterations.}
   \item{\dots}{further arguments to be passed to or from methods.}
 }
 \details{The order of the estimated components is fixed so that the sums of squared autocovariances are in the decreasing order.

@@ -2,8 +2,8 @@ Package: JADE
 Type: Package
 Title: Blind Source Separation Methods Based on Joint Diagonalization
         and Some BSS Performance Criteria
-Version: 2.0-1
-Date: 2018-03-02
+Version: 2.0-2
+Date: 2019-08-19
 Author: Klaus Nordhausen, Jean-Francois Cardoso, Jari Miettinen, Hannu Oja, Esa Ollila, Sara Taskinen
 Maintainer: Klaus Nordhausen <klaus.nordhausen@tuwien.ac.at>
 Imports: clue, graphics
@@ -12,6 +12,6 @@ Description: Cardoso's JADE algorithm as well as his functions for joint diagona
 License: GPL (>= 2)
 LazyData: true
 NeedsCompilation: yes
-Packaged: 2018-03-02 12:05:35 UTC; Klaus Nordhausen
+Packaged: 2019-08-19 12:20:10 UTC; knordhause
 Repository: CRAN
-Date/Publication: 2018-03-02 15:49:31 UTC
+Date/Publication: 2019-08-19 13:10:08 UTC

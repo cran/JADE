@@ -39,4 +39,28 @@ frjd <- function(X, weight=NULL, maxiter=100, eps=1e-06, na.action = na.fail)
   list(V=V, D=D, iter=iter)
 }
 
-
+# internal use frjd, no check for convergence, expects an array as in put
+frjd.int <- function (X, maxiter = 100, eps = 1e-06) 
+{
+  dim.X <- dim(X)
+  p <- dim.X[1]
+  K <- dim.X[3]
+  Xt <- aperm(X, c(1, 3, 2))
+  X <- matrix(Xt, ncol = p)
+  dim.X <- dim(X)
+  p <- dim.X[2]
+  K <- dim.X[1]/p
+  weight <- rep(1, K)
+  res <- .C("rjdc", as.double(as.vector(X)), as.integer(c(K, 
+                                                           p, maxiter)), as.double(as.vector(weight)), as.double(eps), 
+            res = double(p^2 + 1), PACKAGE = "JADE")$res
+  iter <- res[p^2 + 1]
+  V <- matrix(res[1:p^2], p, p)
+  D <- X
+  for (k in 1:K) {
+    D[((k - 1) * p + 1):(k * p), ] <- crossprod(V, crossprod(X[((k - 
+                                                                   1) * p + 1):(k * p), ], V))
+  }
+  D <- array(t(D), c(p, p, K))
+  list(V = V, D = D, iter = iter)
+}

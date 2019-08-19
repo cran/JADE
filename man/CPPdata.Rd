@@ -19,13 +19,13 @@ This data set is a toy example for the so called cocktail party problem. In this
 }
 \details{
 The three original source files were kindly provided by Ella Bingham and are also available online at the following locations:
-\url{research.ics.aalto.fi/ica/cocktail/source5.wav}, \url{research.ics.aalto.fi/ica/cocktail/source7.wav} and \url{research.ics.aalto.fi/ica/cocktail/source9.wav}.
+\url{https://research.ics.aalto.fi/ica/cocktail/source5.wav}, \url{https://research.ics.aalto.fi/ica/cocktail/source7.wav} and \url{https://research.ics.aalto.fi/ica/cocktail/source9.wav}.
 
 Note that the original sound files are included in the package's subfolder datafiles. In the example section we illustrate how the CPPdata was created. 
 An example analysis of the data is given in Miettinen et al. (2017).
 }
 \source{
-\url{http://research.ics.aalto.fi/ica/cocktail/cocktail_en.cgi}
+\url{https://research.ics.aalto.fi/ica/cocktail/cocktail_en.cgi}
 }
 \references{
 \cite{Miettinen, J., Nordhausen, K. and Taskinen, S. (2017), Blind Source Separation Based on Joint Diagonalization in R: The Packages JADE and BSSasymp, \emph{Journal of Statistical Software}, \bold{76}, 1--31, <doi:10.18637/jss.v076.i02>.}

@@ -11,8 +11,8 @@ Cardoso's JADE algorithm as well as his functions for joint diagonalization are 
 \tabular{ll}{
 Package: \tab JADE\cr
 Type: \tab Package\cr
-Version: \tab 2.0-1\cr
-Date: \tab 2018-03-02\cr
+Version: \tab 2.0-2\cr
+Date: \tab 2019-08-19\cr
 License: \tab GPL (>= 2)\cr
 }
 

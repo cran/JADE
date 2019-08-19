@@ -2,6 +2,7 @@
 \alias{rjd}
 \alias{frjd} 
 \alias{rjd.fortran} 
+\alias{frjd.int} 
 \title{Joint Diagonalization of Real Matrices  }
 \description{
   This is an \pkg{R} version of Cardoso's rjd matlab function for joint diagonalization of k real-valued square matrices. A version written in C is also available and preferrable.
@@ -10,11 +11,12 @@
 \usage{
 rjd(X, eps = 1e-06, maxiter = 100, na.action = na.fail)
 frjd(X, weight = NULL, maxiter = 100, eps = 1e-06, na.action = na.fail)
+frjd.int(X, maxiter = 100, eps = 1e-06)
 rjd.fortran(X, weight = NULL, maxiter = 100, eps = 1e-06, na.action = na.fail)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{X}{A matrix of k stacked pxp matrices with dimension c(kp,p) or an array with dimension c(p,p,k).}
+  \item{X}{A matrix of k stacked pxp matrices with dimension c(kp,p) or an array with dimension c(p,p,k). In case of \code{frjd_int} it has to be an array.}
   \item{weight}{A vector of length k to give weight to the different matrices, if NULL, all matrices have equal weight}
   \item{eps}{ Convergence tolerance.}
   \item{maxiter}{ Maximum number of iterations.}
@@ -27,6 +29,8 @@ rjd.fortran(X, weight = NULL, maxiter = 100, eps = 1e-06, na.action = na.fail)
   Cardoso points out that notion of approximate joint diagonalization
   is ad hoc and very small values of \code{eps} make in that case not much sense since the diagonality 
   criterion is ad hoc itself.
+  
+  \code{rjd}, \code{frjd} and \code{rjd.fortran} terminate with an error in case maxiter is reach without convergence whereas \code{frjd_int} returns the current state at when \code{maxiter} is reached and does not warn about convergence problems.
 }
 \value{
   A list with the components
@@ -75,6 +79,9 @@ round(res.array$D, 4)
 
 res.array.C <- frjd(X.array)
 round(res.array.C$D, 4)
+
+res.array.C2 <- frjd.int(X.array)
+round(res.array.C2$D, 4)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

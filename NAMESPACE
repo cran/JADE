@@ -2,7 +2,7 @@ import(stats)
 importFrom(clue,solve_LSAP)
 importFrom(graphics,pairs, plot)
 
-export(JADE, rjd, SIR, ComonGAP, amari.error, MD, AMUSE, bss.components, cjd, djd, multscatter, SOBI, NSS.SD, NSS.JD, NSS.TD.JD,k_JADE,frjd,rjd.fortran,FOBI,FG)
+export(JADE, rjd, SIR, ComonGAP, amari.error, MD, AMUSE, bss.components, cjd, djd, multscatter, SOBI, NSS.SD, NSS.JD, NSS.TD.JD,k_JADE,frjd,frjd.int,rjd.fortran,FOBI,FG)
 S3method(print,bss)
 S3method(coef,bss)
 S3method(plot,bss)
