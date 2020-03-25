@@ -37,7 +37,7 @@ AMUSE.default <- function(x,k=1,...)
     W <- sweep(W, 1, sign(rowMeans(W)), "*")
 
     EV <- EVD$values
-    S <- tcrossprod(x,W)
+    S <- tcrossprod(x.c,W)
     S <- ts(S, names=paste("Series",1:p))
     
     RES <- list(W=W, EV=EV, k=k, S=S)

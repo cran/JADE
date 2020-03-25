@@ -2,16 +2,30 @@ Package: JADE
 Type: Package
 Title: Blind Source Separation Methods Based on Joint Diagonalization
         and Some BSS Performance Criteria
-Version: 2.0-2
-Date: 2019-08-19
-Author: Klaus Nordhausen, Jean-Francois Cardoso, Jari Miettinen, Hannu Oja, Esa Ollila, Sara Taskinen
-Maintainer: Klaus Nordhausen <klaus.nordhausen@tuwien.ac.at>
+Version: 2.0-3
+Date: 2020-03-25
+Authors@R: c(person(given = "Klaus", family = "Nordhausen", role = c("aut", "cre"), email = "klaus.nordhausen@tuwien.ac.at",
+    comment = c(ORCID = "0000-0002-3758-8501")),
+    person(given = "Jean-Francois", family = "Cardoso", role = "aut"),
+    person(given = "Jari", family = "Miettinen", role = "aut",
+    comment = c(ORCID = "0000-0002-3270-7014")),
+    person(given = "Hannu", family = "Oja", role = "aut"),
+    person(given = "Esa", family = "Ollila", role = "aut"),
+    person(given = "Sara", family = "Taskinen", role = "aut",
+    comment = c(ORCID = "0000-0001-9470-7258")))
 Imports: clue, graphics
 Suggests: ICS, ICSNP
 Description: Cardoso's JADE algorithm as well as his functions for joint diagonalization are ported to R. Also several other blind source separation (BSS) methods, like AMUSE and SOBI, and some criteria for performance evaluation of BSS algorithms, are given. The package is described in Miettinen, Nordhausen and Taskinen (2017) <doi:10.18637/jss.v076.i02>. 
 License: GPL (>= 2)
 LazyData: true
 NeedsCompilation: yes
-Packaged: 2019-08-19 12:20:10 UTC; knordhause
+Packaged: 2020-03-25 08:01:53 UTC; knordhause
+Author: Klaus Nordhausen [aut, cre] (<https://orcid.org/0000-0002-3758-8501>),
+  Jean-Francois Cardoso [aut],
+  Jari Miettinen [aut] (<https://orcid.org/0000-0002-3270-7014>),
+  Hannu Oja [aut],
+  Esa Ollila [aut],
+  Sara Taskinen [aut] (<https://orcid.org/0000-0001-9470-7258>)
+Maintainer: Klaus Nordhausen <klaus.nordhausen@tuwien.ac.at>
 Repository: CRAN
-Date/Publication: 2019-08-19 13:10:08 UTC
+Date/Publication: 2020-03-25 11:30:02 UTC

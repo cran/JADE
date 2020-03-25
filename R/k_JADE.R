@@ -60,7 +60,7 @@ k_JADE <- function(X, k=1, eps = 1e-06, maxiter = 100, na.action = na.fail)
   B <- P %*% V %*% W0
 
   W <- V %*% W0
-  S <- tcrossprod(data.X,W)
+  S <- tcrossprod(X,W)
   A <- solve(W)
   colnames(S) <- paste("IC.", 1:p, sep="")
   res <- list(A=A, W=W, S=S, Xmu=Col.center)

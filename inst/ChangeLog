@@ -1,5 +1,9 @@
 LOG of the CHANGES in the package JADE
 
+Version 2.0-3
+* fixing a bug in k_JADE (pointed out by C. Muehlmann)
+* fixing a bug in AMUSE
+
 
 Version 2.0-2
 * adding the function frjd.int
