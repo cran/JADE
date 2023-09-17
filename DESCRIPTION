@@ -2,30 +2,30 @@ Package: JADE
 Type: Package
 Title: Blind Source Separation Methods Based on Joint Diagonalization
         and Some BSS Performance Criteria
-Version: 2.0-3
-Date: 2020-03-25
-Authors@R: c(person(given = "Klaus", family = "Nordhausen", role = c("aut", "cre"), email = "klaus.nordhausen@tuwien.ac.at",
+Version: 2.0-4
+Date: 2023-09-17
+Authors@R: c(person(given = "Klaus", family = "Nordhausen", role = c("aut", "cre"), email = "klausnordhausenR@gmail.com",
     comment = c(ORCID = "0000-0002-3758-8501")),
     person(given = "Jean-Francois", family = "Cardoso", role = "aut"),
     person(given = "Jari", family = "Miettinen", role = "aut",
     comment = c(ORCID = "0000-0002-3270-7014")),
-    person(given = "Hannu", family = "Oja", role = "aut"),
+    person(given = "Hannu", family = "Oja", role = "aut", comment = c(ORCID = "0000-0002-4945-5976")),
     person(given = "Esa", family = "Ollila", role = "aut"),
     person(given = "Sara", family = "Taskinen", role = "aut",
     comment = c(ORCID = "0000-0001-9470-7258")))
+Author: Klaus Nordhausen [aut, cre] (<https://orcid.org/0000-0002-3758-8501>),
+  Jean-Francois Cardoso [aut],
+  Jari Miettinen [aut] (<https://orcid.org/0000-0002-3270-7014>),
+  Hannu Oja [aut] (<https://orcid.org/0000-0002-4945-5976>),
+  Esa Ollila [aut],
+  Sara Taskinen [aut] (<https://orcid.org/0000-0001-9470-7258>)
+Maintainer: Klaus Nordhausen <klausnordhausenR@gmail.com>
 Imports: clue, graphics
 Suggests: ICS, ICSNP
 Description: Cardoso's JADE algorithm as well as his functions for joint diagonalization are ported to R. Also several other blind source separation (BSS) methods, like AMUSE and SOBI, and some criteria for performance evaluation of BSS algorithms, are given. The package is described in Miettinen, Nordhausen and Taskinen (2017) <doi:10.18637/jss.v076.i02>. 
 License: GPL (>= 2)
 LazyData: true
 NeedsCompilation: yes
-Packaged: 2020-03-25 08:01:53 UTC; knordhause
-Author: Klaus Nordhausen [aut, cre] (<https://orcid.org/0000-0002-3758-8501>),
-  Jean-Francois Cardoso [aut],
-  Jari Miettinen [aut] (<https://orcid.org/0000-0002-3270-7014>),
-  Hannu Oja [aut],
-  Esa Ollila [aut],
-  Sara Taskinen [aut] (<https://orcid.org/0000-0001-9470-7258>)
-Maintainer: Klaus Nordhausen <klaus.nordhausen@tuwien.ac.at>
+Packaged: 2023-09-17 14:20:22 UTC; admin
 Repository: CRAN
-Date/Publication: 2020-03-25 11:30:02 UTC
+Date/Publication: 2023-09-17 23:02:33 UTC

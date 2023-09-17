@@ -33,7 +33,7 @@ JADE(X, n.comp = NULL, eps = 1e-06, maxiter = 100, na.action = na.fail)
   It is also worth mentioning that the estimated independent components \eqn{S} are scaled to unit variance and are ordered in such a way, that their fourth moments are in the decreasing order.
   The signs of the unmixing matrix \eqn{W} are fixed so that the sum of the elements on each row is positive.
   
-  For further details see also the documention of the original matlab code ("MatlabjadeR.m") on the ICA central homepage (\url{http://www.tsi.enst.fr/icacentral/}). 
+  The code is based on the original matlab code ("MatlabjadeR.m"). 
 }
 \value{
   A list with class 'bss' containing the following components:

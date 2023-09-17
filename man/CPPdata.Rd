@@ -25,7 +25,7 @@ Note that the original sound files are included in the package's subfolder dataf
 An example analysis of the data is given in Miettinen et al. (2017).
 }
 \source{
-\url{https://research.ics.aalto.fi/ica/cocktail/cocktail_en.cgi}
+Ella Bingham
 }
 \references{
 \cite{Miettinen, J., Nordhausen, K. and Taskinen, S. (2017), Blind Source Separation Based on Joint Diagonalization in R: The Packages JADE and BSSasymp, \emph{Journal of Statistical Software}, \bold{76}, 1--31, <doi:10.18637/jss.v076.i02>.}
